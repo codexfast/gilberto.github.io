@@ -1,6 +1,6 @@
 {
-  "name": "gilberto.portifolio",
-  "private": true,
+  "name": "gilberto.portfolio",
+  "private": false,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
