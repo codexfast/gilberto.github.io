@@ -16,6 +16,11 @@
     color: var(--text);
 }
 
+.text-secondary {
+    color: var(--text);
+    opacity: 0.65;
+}
+
 .text-theme a:hover {
     color: var(--primary-hover);
 }
@@ -44,6 +49,23 @@
     background-color: var(--primary-hover);
 }
 
+/* Title */
+.section-title {
+    position: relative; /* Necessário para posicionar o pseudo-elemento */
+    display: inline-block; /* Centraliza o elemento na largura do conteúdo */
+}
+
+.section-title::after {
+    content: "";
+    position: absolute;
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Ajusta o posicionamento */
+    bottom: -10px;
+    width: 40px;
+    height: 5px;
+    background-color: var(--text);
+    border-radius: 5px; /* Arredonda os cantos da barra */
+}
 /* FONTs */
 
 .poppins-thin {
