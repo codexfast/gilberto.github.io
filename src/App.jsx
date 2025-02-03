@@ -1,10 +1,20 @@
-import React from "react";
 import "./index.css";
 import Navbar from "./components/Navbar";
 import SectionsTracker from "./components/SectionsTracker";
 import { ThemeProvider } from "./context/theme";
 import HeroSection from "./sections/hero";
-import SectionBase from "./sections/base";
+import { ScrollProvider } from "./context/scroll";
+import AboutSection from "./sections/about";
+import QuotationSection from "./sections/quotation";
+import SkillsSection from "./sections/skills";
+
+const AppProvider = ({ children }) => {
+  return (
+    <ThemeProvider>
+      <ScrollProvider>{children}</ScrollProvider>
+    </ThemeProvider>
+  );
+};
 
 export default function App() {
   const menu = [
@@ -15,14 +25,16 @@ export default function App() {
   ];
 
   return (
-    <ThemeProvider>
+    <AppProvider>
       <SectionsTracker sections={menu} />
       <header className="pt-40">
         {/* Navbar */}
         <Navbar menu={menu} />
         <HeroSection />
-        <SectionBase title={"About"}>aaa</SectionBase>
       </header>
-    </ThemeProvider>
+      <AboutSection />
+      <QuotationSection />
+      <SkillsSection />
+    </AppProvider>
   );
 }

@@ -2,32 +2,19 @@ import React, { useState, useEffect, useContext } from "react";
 
 import moon from "../assets/imgs/moon.svg";
 import { ThemeContext } from "../context/theme";
+import { ScrollContext } from "../context/scroll";
 
 const Navbar = ({ menu }) => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const { darkMode } = useContext(ThemeContext);
+  const { posY, isScrolled } = useContext(ScrollContext);
 
-  const handleScroll = () => {
-    if (window.scrollY > 0) {
-      setIsScrolled(true);
-    } else {
-      setIsScrolled(false);
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  console.log(posY);
 
   return (
     <nav
       className={`flex justify-between items-center px-50 fixed top-0 right-0 left-0 ${
         !isScrolled ? "py-15" : "py-5 shadow-sm"
-      } transition-all duration-200 ease-in-out bg-white`}
+      } transition-all duration-200 ease-in-out bg-white z-50`}
     >
       <h1 className="text-xl poppins-regular text-theme">Gilberto</h1>
       <ul className="flex space-x-15 poppins-light text-theme">

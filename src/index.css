@@ -49,6 +49,52 @@
     background-color: var(--primary-hover);
 }
 
+.botao-descendo {
+    /* Estilos básicos do botão */
+    cursor: pointer;
+    animation: flutuar 1.5s ease-in-out infinite;
+}
+
+@keyframes flutuar {
+    0% {
+        transform: translateY(0); /* Posição inicial */
+    }
+    50% {
+        transform: translateY(-10px); /* Desce 10 pixels */
+    }
+    100% {
+        transform: translateY(0); /* Retorna à posição inicial */
+    }
+}
+
+/* Barra de progresso - skills */
+
+progress {
+    width: 75%; /* Largura total da barra */
+    height: 5px; /* Altura da barra */
+    appearance: none; /* Remove a aparência padrão do navegador */
+    background-color: #e0e0e0; /* Cor de fundo da barra */
+    border-radius: 5px; /* Bordas arredondadas */
+}
+
+progress::-webkit-progress-bar {
+    background-color: #e0e0e0; /* Cor de fundo da barra (para navegadores WebKit) */
+    border-radius: 5px; /* Bordas arredondadas */
+}
+
+progress::-webkit-progress-value {
+    background-color: var(
+        --primary
+    ); /* Cor de fundo da barra de progresso (para navegadores WebKit) */
+    border-radius: 5px; /* Bordas arredondadas */
+}
+
+progress::-moz-progress-bar {
+    background-color: var(
+        --primary
+    ); /* Cor de fundo da barra de progresso (para Firefox) */
+    border-radius: 5px; /* Bordas arredondadas */
+}
 /* Title */
 .section-title {
     position: relative; /* Necessário para posicionar o pseudo-elemento */
