@@ -7,6 +7,9 @@ import { ScrollProvider } from "./context/scroll";
 import AboutSection from "./sections/about";
 import QuotationSection from "./sections/quotation";
 import SkillsSection from "./sections/skills";
+import ProjectsSection from "./sections/projects";
+import ContactSection from "./sections/contact";
+import Footer from "./sections/footer";
 
 const AppProvider = ({ children }) => {
   return (
@@ -35,6 +38,9 @@ export default function App() {
       <AboutSection />
       <QuotationSection />
       <SkillsSection />
+      <ProjectsSection />
+      <ContactSection />
+      <Footer />
     </AppProvider>
   );
 }
