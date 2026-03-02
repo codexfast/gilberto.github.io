@@ -1,12 +1,16 @@
-const SectionBase = (props) => {
+const SectionBase = ({ title, children, id, className = "", ...rest }) => {
   return (
-    <section className={`flex px-48 py-16 flex-col`}>
-      {!props.title ? null : (
+    <section
+      id={id}
+      className={`flex px-48 py-16 flex-col ${className}`.trim()}
+      {...rest}
+    >
+      {!title ? null : (
         <h4 className="section-title poppins-semibold text-theme text-4xl text-center">
-          {props.title}
+          {title}
         </h4>
       )}
-      {props.children}
+      {children}
     </section>
   );
 };
