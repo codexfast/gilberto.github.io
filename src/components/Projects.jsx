@@ -1,7 +1,21 @@
 import github_logo from "../assets/imgs/Github.png";
+import localProjects from "../assets/projects.json";
 
-import { nanoid } from "nanoid";
 import { useState, useEffect } from "react";
+
+const normalizeProjects = (data) => {
+  const all = Array.isArray(data?.all) ? data.all : [];
+
+  return {
+    all: all.map((project) => ({
+      title: project?.title ?? "",
+      subtitle: project?.subtitle ?? "",
+      desc: project?.desc ?? "",
+      github: project?.github ?? "",
+      thumb: project?.thumb ?? "",
+    })),
+  };
+};
 
 const Card = ({ title, subtitle, desc, github, thumb }) => {
   return (
@@ -33,9 +47,8 @@ const Card = ({ title, subtitle, desc, github, thumb }) => {
 };
 
 const Projects = () => {
-  const [projects, setProjects] = useState(null);
+  const [projects, setProjects] = useState(normalizeProjects(localProjects));
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -49,36 +62,32 @@ const Projects = () => {
         }
 
         const data = await res.json();
-        setProjects(data);
-      } catch (err) {
-        setError(err);
-        console.error("Error fetching projects:", err); // Log the error for debugging
+        setProjects(normalizeProjects(data));
+      } catch {
+        setProjects(normalizeProjects(localProjects));
       } finally {
         setLoading(false);
       }
     };
 
     fetchProjects();
-  }, []); // Empty dependency array ensures this runs only once on mount
+  }, []);
 
   if (loading) {
     return <div>Loading projects...</div>;
   }
 
-  if (error) {
-    return <div>Error: {error.message}</div>;
-  }
-
-  if (!projects || !projects.all) {
-    // Handle the case where projects or projects.all is null/undefined
+  if (!projects?.all?.length) {
     return <div>No projects data available.</div>;
   }
 
-  console.log(projects);
   return (
     <div className="flex flex-row w-full gap-5 justify-center">
       {projects.all.slice(0, 3).map((project) => (
-        <Card key={nanoid()} {...project} /> // Call nanoid() to generate a new ID each time
+        <Card
+          key={project.github || `${project.title}-${project.subtitle}`}
+          {...project}
+        />
       ))}
     </div>
   );
