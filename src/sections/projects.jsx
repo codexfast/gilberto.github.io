@@ -3,10 +3,11 @@ import SectionBase from "./base";
 
 const ProjectsSection = () => {
   return (
-    <SectionBase id="projects" title={"Projects"}>
+    <SectionBase id="projects" title={"Projetos"}>
       <div className="flex flex-col gap-10 pt-10 items-center pb-10">
         <h4 className="w-80 text-center text-secondary poppins-light">
-          Here are some of my humble projects, they are very simple
+          Uma seleção de projetos com foco em desenvolvimento full stack,
+          qualidade de código e experiência do usuário.
         </h4>
         <Projects />
       </div>

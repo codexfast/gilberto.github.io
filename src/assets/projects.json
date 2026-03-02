@@ -1,11 +1,25 @@
 {
   "all": [
     {
-      "title": "",
-      "subtitle": "",
-      "desc": "",
-      "github": "https://github.com/codexfast/gilberto.github.io.git",
+      "title": "Portfólio Pessoal",
+      "subtitle": "Site institucional e vitrine de projetos",
+      "desc": "Aplicação em React para apresentação profissional, com seções de habilidades, projetos e contato, focada em performance, responsividade e manutenção simples.",
+      "github": "https://github.com/codexfast/gilberto.github.io",
       "thumb": "https://raw.githubusercontent.com/codexfast/projects/refs/heads/main/portfolio-sm.png"
+    },
+    {
+      "title": "Ceissa",
+      "subtitle": "Landing page de apresentação comercial",
+      "desc": "Projeto de front-end para divulgação de serviços, estruturado para comunicação clara, boa hierarquia visual e fácil adaptação de conteúdo.",
+      "github": "",
+      "thumb": "https://raw.githubusercontent.com/codexfast/projects/refs/heads/main/ceissa-sm.png"
+    },
+    {
+      "title": "Template de Projetos",
+      "subtitle": "Base reutilizável para páginas web",
+      "desc": "Coleção de componentes e padrões de interface para acelerar a criação de novos projetos, mantendo consistência visual e produtividade no desenvolvimento.",
+      "github": "https://github.com/codexfast/projects",
+      "thumb": "https://raw.githubusercontent.com/codexfast/projects/refs/heads/main/projects-sm.png"
     }
   ]
 }

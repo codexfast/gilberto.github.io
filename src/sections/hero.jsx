@@ -9,19 +9,20 @@ const HeroSection = () => {
       <div className="flex px-48 py-20">
         <div className="flex-1 gap-5 flex flex-col px-14">
           <h2 className="text-4xl poppins-medium text-theme">
-            Hi i'm Gilberto Leandro
+            Olá, eu sou Gilberto Leandro
           </h2>
           <h3 className="text-lg poppins-semibold text-secondary">
-            Fullstack Developer
+            Desenvolvedor Full Stack
           </h3>
           <h4 className="text-sm poppins-light text-secondary">
-            Flexibility and dexterity working with Web and Desktop development.
+            Desenvolvo soluções web e desktop com foco em performance,
+            usabilidade e resultados de negócio.
           </h4>
           <a
             href="#contact"
             className="btn-primary w-40 py-4 poppins-light text-center"
           >
-            Contact me
+            Fale comigo
           </a>
         </div>
         <div className="flex-1 px-14">
