@@ -3,13 +3,34 @@
 
 /* Paleta */
 
-:root {
+:root,
+:root[data-theme="light"] {
     --primary: #403330;
     --primary-hover: #3f322e;
     --secondary: #64748b;
     --accent: #f43f5e;
     --background: #f1f5f9;
+    --surface: #ffffff;
     --text: #403330;
+    --muted: #6b7280;
+    --border: #e2e8f0;
+}
+
+:root[data-theme="dark"] {
+    --primary: #e2b9ad;
+    --primary-hover: #e8c8be;
+    --secondary: #94a3b8;
+    --accent: #fb7185;
+    --background: #111827;
+    --surface: #1f2937;
+    --text: #f8fafc;
+    --muted: #cbd5e1;
+    --border: #334155;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--text);
 }
 
 .text-theme {
@@ -17,8 +38,15 @@
 }
 
 .text-secondary {
-    color: var(--text);
-    opacity: 0.65;
+    color: var(--muted);
+}
+
+.bg-surface {
+    background-color: var(--surface);
+}
+
+.border-theme {
+    border-color: var(--border);
 }
 
 .text-theme a:hover {
@@ -73,12 +101,12 @@ progress {
     width: 75%; /* Largura total da barra */
     height: 5px; /* Altura da barra */
     appearance: none; /* Remove a aparência padrão do navegador */
-    background-color: #e0e0e0; /* Cor de fundo da barra */
+    background-color: var(--border); /* Cor de fundo da barra */
     border-radius: 5px; /* Bordas arredondadas */
 }
 
 progress::-webkit-progress-bar {
-    background-color: #e0e0e0; /* Cor de fundo da barra (para navegadores WebKit) */
+    background-color: var(--border); /* Cor de fundo da barra (para navegadores WebKit) */
     border-radius: 5px; /* Bordas arredondadas */
 }
 

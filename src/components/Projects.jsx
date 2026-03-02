@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 
 const Card = ({ title, subtitle, desc, github, thumb }) => {
   return (
-    <div className="bg-white rounded-lg shadow-lg shadow-gray-200 p-6 max-w-sm w-72">
+    <div className="bg-surface border border-theme rounded-lg shadow-lg p-6 max-w-sm w-72">
       <img src={thumb} />
       <div className="p-4">
         <h2 className="text-xl text-theme poppins-bold mb-2">{title}</h2>

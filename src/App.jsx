@@ -1,7 +1,8 @@
 import "./index.css";
+import { useContext, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import SectionsTracker from "./components/SectionsTracker";
-import { ThemeProvider } from "./context/theme";
+import { ThemeContext, ThemeProvider } from "./context/theme";
 import HeroSection from "./sections/hero";
 import { ScrollProvider } from "./context/scroll";
 import AboutSection from "./sections/about";
@@ -19,7 +20,16 @@ const AppProvider = ({ children }) => {
   );
 };
 
-export default function App() {
+const AppContent = () => {
+  const { darkMode } = useContext(ThemeContext);
+
+  useEffect(() => {
+    document.documentElement.setAttribute(
+      "data-theme",
+      darkMode ? "dark" : "light",
+    );
+  }, [darkMode]);
+
   const menu = [
     { name: "About", link: "#about" },
     { name: "Skills", link: "#skills" },
@@ -28,7 +38,7 @@ export default function App() {
   ];
 
   return (
-    <AppProvider>
+    <>
       <SectionsTracker sections={menu} />
       <header className="pt-40">
         {/* Navbar */}
@@ -41,6 +51,16 @@ export default function App() {
       <ProjectsSection />
       <ContactSection />
       <Footer />
+    </>
+  );
+};
+
+const App = () => {
+  return (
+    <AppProvider>
+      <AppContent />
     </AppProvider>
   );
-}
+};
+
+export default App;
